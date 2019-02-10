@@ -1,0 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.credit.suisse'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation group: 'ch.qos.logback', name: 'logback-classic', version:'1.1.7'
+	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
+	implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
+	
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+
+	runtimeOnly group: 'org.hsqldb', name: "hsqldb", version: "2.4.0"
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
